@@ -18,7 +18,7 @@
 # [*san_password*]
 #   (required) Password for Datera admin account.
 #
-# [*num_replicas*]
+# [*datera_num_replicas*]
 #   (optional) Number of replicas to keep.
 #   Defaults to 2
 #
@@ -33,7 +33,7 @@ class cinder::volume::datera(
   $san_login,
   $san_password,
   $volume_driver       = 'cinder.volume.drivers.datera.DateraDriver',
-  $num_replicas	       = '2',
+  $datera_num_replicas	       = '2',
   $extra_options       = {},
 ) {
 
@@ -42,7 +42,7 @@ class cinder::volume::datera(
     san_login           => $san_login,
     san_password        => $san_password,
     volume_driver       => $volume_driver,
-    num_replicas        => $num_replicas,
+    datera_num_replicas => $datera_num_replicas,
     extra_options       => $extra_options,
   }
 }

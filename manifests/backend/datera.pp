@@ -22,7 +22,7 @@
 # [*san_password*]
 #   (required) Password for Datera tenant admin account.
 #
-# [*num_replicas*]
+# [*datera_num_replicas*]
 #   (optional) The number of replicas to keep.
 #   Defaults to 2
 #
@@ -36,7 +36,7 @@ define cinder::backend::datera(
   $san_ip,
   $san_login,
   $san_password,
-  $num_replicas,
+  $datera_num_replicas,
   $volume_backend_name = $name,
   $volume_driver       = 'cinder.volume.drivers.datera.DateraDriver',
   $extra_options       = {},
@@ -48,7 +48,7 @@ define cinder::backend::datera(
     "${name}/san_ip":              value => $san_ip;
     "${name}/san_login":           value => $san_login;
     "${name}/san_password":        value => $san_password, secret => true;
-    "${name}/num_replicas":        value => $num_replicas;
+    "${name}/datera_num_replicas":        value => $datera_num_replicas;
   }
 
   create_resources('cinder_config', $extra_options)

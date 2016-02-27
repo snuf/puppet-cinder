@@ -8,7 +8,7 @@ describe 'cinder::backend::datera' do
       :san_ip       => '192.168.1.81',
       :san_login    => 'openstack_tenant0',
       :san_password => 'password',
-      :num_replicas => '2',
+      :datera_num_replicas => '2',
     }
   end
 
@@ -26,7 +26,7 @@ describe 'cinder::backend::datera' do
         'openstack_tenant0')
       is_expected.to contain_cinder_config('datera/san_password').with_value(
         'password')
-      is_expected.to contain_cinder_config('datera/num_replicas').with_value(
+      is_expected.to contain_cinder_config('datera/datera_num_replicas').with_value(
         '2')
     end
   end
